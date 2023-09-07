@@ -1,0 +1,2 @@
+# Set up the default profile... See cucumber --help for explanations
+default: --publish-quiet --require lib --require features --format pretty
