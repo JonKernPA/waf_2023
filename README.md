@@ -2,11 +2,28 @@
 
 Workshop for Experiencing Agile
 
+## My Environment
+
+I run my code on a MacBook Pro, 32 GB, Apple M2 Max CPU
+
+I use RVM (see `.ruby-version` and `.ruby-gemset`) to compartmentalize the ruby and gems for this specific app.
+
+Use `$ bundle install` to get the rspec and cucumber gems installed
+
+I use Rubymine as an IDE.
+
+I also run rspec and cucumber from the commandline (Terminal).
+
+In Terminal, I decorate the command line prompt (RVM gemset | working dir | branch)
+
+    ruby-2.6.0@waf ~/railsprojects/rails4/waf on [master*]
+
 ## RSpec
 
-You should be able to run RSpec from the command line and have the initial sample test pass.
+You should be able to run RSpec from the command line (or your IDE) and have the initial sample test pass.
 
 ```
+ruby-2.6.0@waf ~/rubyprojects/waf on [master*]
 $ rspec
 
 Calculator
@@ -22,6 +39,7 @@ Finished in 0.00134 seconds (files took 0.07109 seconds to load)
 And you should be able to run Cucumber
 
 ```
+ruby-2.6.0@waf ~/rubyprojects/waf on [master*]
 $ cucumber
 Using the default profile...
 Feature: People needs to adds the numberz
