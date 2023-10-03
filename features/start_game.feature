@@ -10,3 +10,8 @@ Feature: Users can start the game of life simulation
     And the application is started
     When The Stop button is pressed
     Then The Game will be stopped
+
+  Scenario: Show the game board
+    Given The application is configured 4 x 3
+    When the application is started
+    Then The Game grid will be shown

@@ -25,3 +25,16 @@ end
 Then(/^The Game will be stopped$/) do
   expect(@app.started).to be_falsey
 end
+
+Given(/^The application is configured (\d+) x (\d+)$/) do |width, height|
+  @app = AppleSauce.new(width: width, height: height)
+end
+
+Then(/^The Game grid will be shown$/) do
+  board = <<~BRD
+      | | | | |
+      | | | | |
+      | | | | |
+  BRD
+  expect(@app.show_board).to eql(board)
+end
