@@ -15,3 +15,17 @@ Feature: Users can start the game of life simulation
     Given The application is configured 4 x 3
     When the application is started
     Then The Game grid will be shown
+
+  Scenario: Board can be pre-configured
+    Given The application is configured 4 x 4
+    And the cells are initialized as follows
+      | | | | |
+      |x|x|x| |
+      | | | | |
+      | | | | |
+    When the application is started
+    Then The Game grid should be this after 1 generation
+      | |*| | |
+      | |*| | |
+      | |*| | |
+      | | | | |

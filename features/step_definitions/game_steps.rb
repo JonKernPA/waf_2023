@@ -38,3 +38,37 @@ Then(/^The Game grid will be shown$/) do
   BRD
   expect(@app.show_board).to eql(board)
 end
+
+And(/^the cells are initialized as follows$/) do |table|
+  # table is a table.hashes.keys # => [:a, :b, :c, :d]
+  table.raw.each_with_index do |row, r|
+    row.each_with_index do |value, c |
+      # puts "Cell[#{r},#{c}] = '#{value == '*' ? true : false}'"
+      if value == 'x'
+        @app.alive(r,c)
+      end
+    end
+  end
+end
+
+Then(/^The Game grid should be this after (\d+) generation$/) do |gen, table|
+  puts 'STARTING STATE-----------------'
+  puts @app.show_board
+  puts '- - - - - - - - - - - - - - - -'
+  @app.generation
+  puts 'GEN 1 -----------------'
+  puts @app.show_board
+
+  puts 'TEST -----------------'
+  board = []
+  table.raw.each_with_index do |row, r|
+    text = "|"
+    row.each_with_index do |value, c |
+      text += "#{value == '*' ? '*' : ' '}|"
+    end
+    board << text
+  end
+  puts board.join("\n")
+
+  expect(@app.show_board.rstrip).to eql((board.join("\n")))
+end
